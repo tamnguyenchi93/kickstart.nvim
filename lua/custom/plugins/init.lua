@@ -11,3 +11,17 @@ for file_name, type in vim.fs.dir(plugins_dir, { follow = true }) do
     require('custom.plugins.' .. module)
   end
 end
+
+-- Create custom command to check Lsp status
+vim.api.nvim_create_user_command('LspInfo', ':checkhealth vim.lsp', { desc = 'Alias to `:checkhealth vim.lsp`' })
+
+-- You can also add relative line numbers, to help with jumping.
+--  Experiment for yourself to see if you like it!
+vim.o.relativenumber = true
+
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+-- vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+-- vim.o.clipboard = 'unnamedplus'
