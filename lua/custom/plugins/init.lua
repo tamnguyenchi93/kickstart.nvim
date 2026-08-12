@@ -39,4 +39,26 @@ vim.g.clipboard = {
 	cache_enabled = 1, -- cache MUST be enabled, or else it hangs on dd/y/x and all other copy operations
 }
 
-
+vim.lsp.config('robotframework_ls', {
+settings = {
+	robot = {
+		-- lint = {
+		--   robocop = {
+		--     enabled = true, -- Enables Robocop integration
+		--   },
+		-- },
+		['language-server'] = {
+			python = vim.fn.exepath("python3"),
+		},
+		variables = {
+			-- Set EXECDIR explicitly if static resolution fails in your workspace
+			EXECDIR = vim.fn.getcwd() .. '/src',
+		},
+		pythonpath = {
+			vim.fn.getcwd() .. '/src',
+			vim.fn.getcwd() .. '/../ampere-robotframework-dev/src',
+			vim.fn.exepath("python3"),
+		}
+	}
+},
+})

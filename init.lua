@@ -695,6 +695,7 @@ do
     -- clangd = {},
     -- gopls = {},
     pyright = {},
+    robotframework_ls = {},
     -- rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
